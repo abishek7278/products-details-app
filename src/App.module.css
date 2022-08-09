@@ -1,6 +1,9 @@
+body{
+  font-family: 'Source Sans Pro',sans-serif;
+}
 .Topbar{
   background-color: #282c34;
-  padding:24px 48px 12px;
+  padding:10px 12px;
   text-align: center;
   position: fixed;
   top: 0;
@@ -9,4 +12,120 @@
 }
 .Topbar > img{
   width:100px;
+}
+.MainContainer{
+  padding: 6% 10%;
+  margin-top: 32px;
+  box-sizing:border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.ProductPreview{
+  width: 50%;
+  position: relative;
+}
+.ProductPreview > img{
+  width: 100%;
+}
+.TimeSection{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 48px;
+  font-weight: 600;
+}
+.HeartBeatSection
+{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 48px;
+  font-weight: 600;
+}
+.HeartBeatSection > i{
+  color: red;
+  animation: beat 1s infinite;
+}
+@keyframes beat{
+  0%{
+    transform: scale(1,1);
+  }
+  50%{
+    transform: scale(1.5,1.5);
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
+.HeartBeatSection>p{
+  margin-top: 16px;
+}
+.ProductData{
+  width:50%
+}
+
+.ProductTitle{
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.ProductDescription{
+  font-size: 20px;
+  color: rgba(0,0,0,0.8);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.ProductImage{
+  width: 100%;
+  max-width: 80px;
+  border:2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 18px;
+}
+
+.SelectedProductImage{
+  border:2px solid teal;
+}
+
+.SectionHeading{
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.FeatureItem{
+  min-width: 80px;
+  background-color: gainsboro;
+  border-radius: 8px;
+  border: 0;
+  text-align: center;
+  margin-right: 12px;
+  cursor: pointer;
+  box-sizing: content-box;
+  padding: 12px 24px;
+  font-weight: 600;
+}
+
+.SelectedFeaturedItem{
+  color: white;
+  background-color: grey;
+}
+
+.PrimaryButton
+{
+  color: white;
+  background-color: teal;
+  font-size: 20px;
+  border-radius: 8px;
+  border: 0;
+  padding: 12px 24px;
+  margin-top: 24px;
 }
