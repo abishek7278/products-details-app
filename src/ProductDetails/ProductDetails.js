@@ -1,31 +1,33 @@
 import React from 'react'
-import ProductData from '../Utils/ProductData'
 import classes from '../ProductDetails/ProductDetails.module.css'
 const ProductDetails=(props)=>{
-    console.log(props.data)
     const colorOptions=props.data.colorOptions.map((item,pos)=>{
       const colorArr=[classes.ProductImage]
-      if(pos==0)
+      if(pos===props.currentImage)
       {
         colorArr.push(classes.SelectedProductImage)
       }
       return(
-        <img className={colorArr.join(' ')} src={item.imageUrl} alt={item.styleName}/>
-      )
+        <img key={pos} className={colorArr.join(' ')} src={item.imageUrl} alt={item.styleName} onClick={()=>props.onColorOptionClick(pos)}/>
+      );
     })
     const featureList=props.data.featureList.map((item,pos)=>{
       const featureArr=[classes.FeatureItem]
-      if(item==="Time"){
+      if(pos===props.currentSelectedFeature){
+        featureArr.push(classes.SelectedFeaturedItem)
+      }
+      else
+      {
         featureArr.push(classes.SelectedFeaturedItem)
       }
       return(
-        <button className={featureArr.join(' ')}>{item}</button>
+        <button onClick={props.onFeatureItemClick(pos)} key={pos} className={featureArr.join(' ')}>{item}</button>
       )
     })
     return(
         <div className={classes.ProductData}>
-          <h1 className={classes.ProductTitle}>{ProductData.title}</h1>
-          <p className={classes.ProductDescription}>{ProductData.description}</p>
+          <h1 className={classes.ProductTitle}>{props.data.title}</h1>
+          <p className={classes.ProductDescription}>{props.data.description}</p>
           <h3 className={classes.SectionHeading}>Select Color</h3>
           <div>
             {colorOptions}

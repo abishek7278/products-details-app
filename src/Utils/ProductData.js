@@ -23,5 +23,5 @@ const ProductData = {
         "Time","Heart Rate"
     ]
 }
-Object.freeze(ProductData)
+
 export default ProductData

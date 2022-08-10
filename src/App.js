@@ -8,8 +8,15 @@ import Topbar from './Topbar/Topbar';
 class App extends Component {
   state={
     productData:ProductData,
-    ImageUrl:'https://imgur.com/iOeUBV7.png',
-    showTime:false,
+    ImagePos:0,
+    currentSelectedFeature:0,
+  }
+  onFeatureItemClick=(pos)=>{
+    this.setState({currentSelectedFeature:pos})
+  }
+  onColorOptionClick=(pos)=>{
+    this.setState({Imagepos:pos})
+    
   }
   render(){
     return (
@@ -17,10 +24,10 @@ class App extends Component {
         <Topbar/>
         <div className={classes.MainContainer}>
           <div className={classes.ProductPreview}>
-            <ProductPreview ImageUrl={this.state.ImageUrl} showTime={this.state.showTime}/>
+            <ProductPreview  ImageUrl={this.state.productData.colorOptions[this.state.ImagePos].imageUrl} currentSelectedFeature={this.state.currentSelectedFeature}/>
           </div>
           <div className={classes.ProductData}>
-            <ProductDetails data={this.state.productData}/>
+            <ProductDetails currentSelectedFeature={this.state.currentSelectedFeature} onFeatureItemClick={this.onFeatureItemClick} currentImage={this.state.ImagePos} onColorOptionClick={this.onColorOptionClick} data={this.state.productData}/>
           </div>
         </div>
       </div>
