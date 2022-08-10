@@ -18,6 +18,10 @@ const ProductData = {
             styleName:'Purple Strap',
             imageUrl:'https://imgur.com/xSIK4M8.png'
         }
+    ],
+    featureList:[
+        "Time","Heart Rate"
     ]
 }
+Object.freeze(ProductData)
 export default ProductData
